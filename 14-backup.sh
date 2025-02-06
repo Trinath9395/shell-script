@@ -45,10 +45,16 @@ fi
 FILES=$(find "$SOURCE_DIR" -name "*.log" -mtime +"$DAYS")
 
 if [[ -n "$FILES" ]]; then
- echo "Files to be zipped: $FILES" | tee -a "$LOG_FILE_NAME"
- ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
- echo "$FILES" | zip -@ "$ZIP_FILE"
- VALIDATE $? "Zipping log files"
+  echo "Files to be zipped: $FILES" | tee -a "$LOG_FILE_NAME"
+  ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
+  echo "$FILES" | zip -@ "$ZIP_FILE"
+  if [ -f $ZIP_FILE ]; then
+   echo "$ZIP_FILE is is created successfully"
+  else
+   echo "$ZIP_FILE is failed to create"
+   exit 1
+  fi 
+  VALIDATE $? "Zipping log files"
 else
  echo "No files found to zip older than $DAYS days." | tee -a "$LOG_FILE_NAME"
 fi
