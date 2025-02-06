@@ -23,6 +23,7 @@ echo "Script exectuion starting time at: $TIMESTAMP" >>"$LOG_FILE_NAME"
 
 USAGE(){
     echo "USAGE:: sh sh 14-backup.sh <SOURCE_DIR> <DEST_DIR> <DAYS(optinal)>" 
+    exit 1
 }
 
 mkdir -p /home/ec2-user/shellscript-logs
@@ -30,6 +31,17 @@ mkdir -p /home/ec2-user/shellscript-logs
 if [ $# -lt 2 ]; then
  USAGE
 fi
+
+if [ ! -d $SOURCE_DIR ]; then
+ echo "$SOURCE_DIR does not exist...Please check"
+ exit 1
+fi
+
+if [ ! -d $DEST_DIR ]; then
+ echo "$DEST_DIR does not exist...Please Check"
+ exit 1
+fi
+
 
 
 
