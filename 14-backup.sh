@@ -48,7 +48,7 @@ echo "Files are: $FILES"
 if [[ -n $FILES ]]; then
  echo "FILES are $FILES"
 else
- echo "no files found to zip"
+ echo "no files found to zip $DAYS"
 fi
 
 
