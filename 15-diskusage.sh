@@ -11,10 +11,11 @@ do
   echo "Partion of: $PARTION, usage $USAGE"
   if [ $USAGE -ge $DISK_THRESOLD ]; then
    MSG+="HIGH disk usage on partion on: $PARTION usage is: $USAGE \n
+
   fi
 
 done <<< "$DISK_USAGE"
 
- echo -e "Message: $MSG"
+echo -e "Message: $MSG"
 
- echo "$MSG" | sendmail -s "High disk usage" thrinathreddy.d@gmail.com
+echo "$MSG" | sendmail -s "High disk usage" thrinathreddy.d@gmail.com
