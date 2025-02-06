@@ -47,7 +47,7 @@ echo "Files are: $FILES"
 
 if [[ -n $FILES ]]; then
  echo "FILES are $FILES"
- ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
+ sudo ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
  $FILES | zip -@ $ZIP_FILE
 else
  echo "no files found to zip $DAYS"
