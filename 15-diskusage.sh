@@ -18,4 +18,4 @@ done <<< "$DISK_USAGE"
 
 echo -e "Message: $MSG"
 
-echo "$MSG" | sendmail -s "High disk usage" thrinathreddy.d@gmail.com
+echo "$MSG" | mutt -s "High disk usage" thrinathreddy.d@gmail.com
