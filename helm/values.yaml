@@ -1,0 +1,5 @@
+deployment: 
+  replicas: 3
+  imageVersion: late3st 
+service: 
+  nodePort: 30007
